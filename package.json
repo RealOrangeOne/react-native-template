@@ -1,17 +1,26 @@
 {
-	"name": "ReactNativeTemplate",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"lint": "eslint src/"
-	},
-	"dependencies": {
-		"react": "15.4.2",
-		"react-native": "0.40.0"
-	},
-	"devDependencies": {
-		"babel-preset-react-native": "1.9.1",
-		"eslint-config": "dabapps/eslint-config#2.0.5"
-	}
+  "name": "ReactNativeTemplate",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "npm run lint && npm run mocha",
+    "mocha": "mocha --require babel-core/register scripts/test-helper.js --bail 'src/__tests__/**/*.js'",
+    "lint": "eslint src/"
+  },
+  "dependencies": {
+    "react": "15.4.2",
+    "react-native": "0.40.0"
+  },
+  "devDependencies": {
+    "babel-cli": "6.22.2",
+    "babel-preset-react-native": "1.9.1",
+    "chai": "3.5.0",
+    "enzyme": "2.7.0",
+    "eslint-config": "dabapps/eslint-config#2.0.5",
+    "jsdom": "9.9.1",
+    "mocha": "3.2.0",
+    "react-dom": "15.4.2",
+    "react-native-mock": "0.2.9"
+  }
 }
