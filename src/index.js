@@ -8,7 +8,7 @@ import {
 
 import Routes from './navigation/routes';
 import RouteMapper from './navigation/route-mapper';
-
+import { NAVBAR_HEIGHT } from './settings/consts';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   },
   wrapper: {
     flex: 1,
-    marginTop: 56
+    marginTop: NAVBAR_HEIGHT
   }
 });
 
