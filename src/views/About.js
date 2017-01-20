@@ -3,20 +3,10 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableHighlight
+  Button,
+  Linking
 } from 'react-native';
-
-export default class ReactNativeTemplate extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-      </View>
-    );
-  }
-}
+import { PROJECT_URL } from '../settings/consts';
 
 const styles = StyleSheet.create({
   container: {
@@ -29,10 +19,29 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
+
+export default class ReactNativeTemplate extends Component {
+  constructor() {
+    super();
+    this.goToRepo = this.goToRepo.bind(this);
+  }
+
+  goToRepo() {
+    Linking.openURL(PROJECT_URL);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Welcome to React Native!
+        </Text>
+        <Button
+          onPress={this.goToRepo}
+          title="Read More"/>
+      </View>
+    );
+  }
+}
