@@ -3,7 +3,8 @@ import React from 'react';
 import {
   Text,
   View,
-  StyleSheet
+  StyleSheet,
+  TouchableHighlight
 } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -14,6 +15,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: 'center',
+  },
+  backButton: {
+    fontSize: 25,
+    padding: 10
   }
 });
 
@@ -21,7 +26,9 @@ export default {
   LeftButton: function (route, navigator, index, navState) {
     if (index >= 1) {
       return (
-        <Text>Back</Text>
+        <TouchableHighlight style={styles.container} onPress={navigator.pop} underlayColor="transparent">
+          <Text style={styles.backButton}>&lt;</Text>
+        </TouchableHighlight>
       );
     }
     return <View />;
@@ -32,8 +39,10 @@ export default {
   },
 
   Title: function (route, navigator, index, navState) {
-    return <View style={styles.container}>
-      <Text style={styles.title}>Title</Text>
-    </View>
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Title</Text>
+      </View>
+    );
   }
 }
