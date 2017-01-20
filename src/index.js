@@ -1,43 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
-  View
+  View,
+  Navigator,
+  StyleSheet
 } from 'react-native';
+
+import Routes from './navigation/routes';
+import RouteMapper from './navigation/route-mapper';
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  navbar: {
+    flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#FFF'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333',
-    marginBottom: 5,
-  },
+  wrapper: {
+    flex: 1,
+    marginTop: 56
+  }
 });
 
-export default class ReactNativeTemplate extends React.Component {
+export default class App extends Component {
+  renderScene(route, nav) {
+    const Component = route.component;
+    const props = route.props || {};
+    return (
+      <View style={styles.wrapper}>
+        <Component
+          nav={nav}
+          currentRoute={route}
+          {...props} />
+      </View>
+    );
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <Navigator
+          renderScene={this.renderScene}
+          initialRoute={Routes.main}
+          navigationBar={
+            <Navigator.NavigationBar
+              style={styles.navbar}
+              routeMapper={RouteMapper} />
+          } />
       </View>
     );
   }

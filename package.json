@@ -11,5 +11,5 @@
 	},
 	"devDependencies": {
 		"babel-preset-react-native": "1.9.1"
-	},
+	}
 }
