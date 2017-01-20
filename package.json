@@ -6,6 +6,7 @@
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "npm run lint && npm run mocha",
     "mocha": "mocha --require babel-core/register scripts/test-helper.js --bail 'src/__tests__/**/*.js'",
+    "coverage": "nyc npm run mocha",
     "lint": "eslint src/"
   },
   "dependencies": {
@@ -20,6 +21,7 @@
     "eslint-config": "dabapps/eslint-config#2.0.5",
     "jsdom": "9.9.1",
     "mocha": "3.2.0",
+    "nyc": "10.1.2",
     "react-dom": "15.4.2",
     "react-native-mock": "0.2.9"
   }
