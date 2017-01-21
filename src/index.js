@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
-  Text,
   View,
   Navigator,
   StyleSheet
@@ -25,7 +24,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class App extends Component {
+export default class App extends React.Component {
   renderScene(route, nav) {
     const Component = route.component;
     const props = route.props || {};

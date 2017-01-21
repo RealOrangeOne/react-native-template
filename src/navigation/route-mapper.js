@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 });
 
 export default {
-  LeftButton: function (route, navigator, index, navState) {
+  LeftButton: function (route, navigator, index) {
     if (index >= 1) {
       return (
         <TouchableHighlight style={styles.container} onPress={navigator.pop} underlayColor="transparent">
@@ -34,15 +34,15 @@ export default {
     return <View />;
   },
 
-  RightButton: function (route, navigator, index, navState) {
+  RightButton: function () {
     return <View />;
   },
 
-  Title: function (route, navigator, index, navState) {
+  Title: function () {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Title</Text>
       </View>
     );
   }
-}
+};
