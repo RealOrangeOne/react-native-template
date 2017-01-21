@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "npm run lint && npm run mocha",
+    "test": "npm run lint && npm run coverage",
     "mocha": "mocha --require babel-core/register scripts/test-helper.js --bail 'src/__tests__/**/*.js'",
     "coverage": "nyc npm run mocha",
     "lint": "eslint src/"
