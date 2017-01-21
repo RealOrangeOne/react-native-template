@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class ReactNativeTemplate extends Component {
+export default class About extends Component {
   constructor() {
     super();
     this.goToRepo = this.goToRepo.bind(this);
